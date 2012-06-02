@@ -12,6 +12,12 @@ rails-docs
 
    > Used natively for https://developers.facebook.com apps
 
+1. **Create Facebook App**: walks you through setting up the Facbook App + starter app + automatic deployment to Heroku
+2. Follow Heroku-Facebook guide:
+   * Create Facebook apps: "my-app" and "my-app - dev" (for local testing)
+3. Read through the example source code to learn more!
+
+
 ## Sample Facebook Canvas App
 
 	https://developers.facebook.com/docs/samples/canvas/
