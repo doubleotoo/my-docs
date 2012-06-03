@@ -25,3 +25,8 @@ Tutorials:
 ## Sample Facebook Canvas App
 
 	https://developers.facebook.com/docs/samples/canvas/
+	
+Rails 3.1
+
+* Twitter Bootstrap
+  [twitter-bootstrap-rails](https://github.com/seyhunak/twitter-bootstrap-rails)
