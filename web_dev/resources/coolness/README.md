@@ -37,6 +37,35 @@ SVG DOM
 3. Change color: `svg.style('#group1 {fill: black}');`
 3. Change all groups color: `svg.style('g {fill: black}');`
 
+``` HTML
+  <script src="javascripts/svg/jquery.svg.min.js"></script>
+  <script src="javascripts/svg/jquery.svgdom.min.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      $("#user_svg").svg({
+        onLoad: function() {
+          var svg = $("#user_svg").svg('get');
+          svg.load('images/first_aid.svg');
+          svg.style('g {fill: red}');
+          $("#user_svg").hover(
+            function () {
+              svg.style('g {fill: black}');
+            },
+            function () {
+              svg.style('g {fill: red}');
+            }
+          );
+        },
+        settings: {}
+      });
+  });
+  </script>
+```
+
+
+
+
 
 http://stackoverflow.com/questions/5369992/animating-externally-loaded-svg-with-keith-woods-jquery-svg-plugin
 
