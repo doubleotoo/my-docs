@@ -81,14 +81,14 @@ Rails 3.1
    
    *Reference: https://github.com/sferik/rails_admin/blob/master/app/assets/stylesheets/rails_admin/imports.css.scss.erb*
 
-    * Create a controller for the Application root/index:
+   * Create a controller for the Application root/index:
     
-      ```bash
-        $ rm public/index.html
-        $ rails generate controller main index
-        $ vim config/routes.rb
-        + root :to => 'main#index'
-      ```
+     ```bash
+       $ rm public/index.html
+       $ rails generate controller main index
+       $ vim config/routes.rb
+       + root :to => 'main#index'
+     ```
 
 2. [anjlab/bootstrap-rails](https://github.com/anjlab/bootstrap-rails)
 
