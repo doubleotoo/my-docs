@@ -50,7 +50,7 @@ Rails 3.1
 
 ## Twitter Bootstrap
 
-* A good overview
+* A good overview of different ways to integrate Twitter Bootstrap + Rails
   http://rubysource.com/twitter-bootstrap-less-and-sass-understanding-your-options-for-rails-3-1/
 
 #### SASS Twitter Bootstrap
@@ -78,6 +78,17 @@ Rails 3.1
 
       @import "bootstrap"; // <-- Add this, remove `*= require_tree .` from the top ^
    ```
+   
+   *Reference: https://github.com/sferik/rails_admin/blob/master/app/assets/stylesheets/rails_admin/imports.css.scss.erb*
+
+    * Create a controller for the Application root/index:
+    
+      ```bash
+        $ rm public/index.html
+        $ rails generate controller main index
+        $ vim config/routes.rb
+        + root :to => 'main#index'
+      ```
 
 2. [anjlab/bootstrap-rails](https://github.com/anjlab/bootstrap-rails)
 
