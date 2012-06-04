@@ -97,6 +97,8 @@ Ruby Gem: https://github.com/Compass/compass-rails
 $ gem install compass
 $ compass install bootstrap
 
+Progress bar: https://github.com/chriseppstein/sass-recipes/blob/master/progress-bar/simple_progress_bar.sass
+
 
 2. [anjlab/bootstrap-rails](https://github.com/anjlab/bootstrap-rails)
 
