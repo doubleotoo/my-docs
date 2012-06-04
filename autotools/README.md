@@ -16,5 +16,17 @@ autotools
        endif !DEBUG
      ```
 
+* **Do not define or modify `SUBDIRS` conditionally**
+
+  > `SUBDIRS` must be defined unconditionally to include all subdirectories 
+  > that might ever be needed, on any system. Otherwise, `make dist` will yield unexpected
+  > results
+
+  > The right way to handle conditionally building parts of the codebase  
+  > is modify the `Makefile.am` in the directory where the conditionally-
+  > built code resides.
+  
+  > *http://old.nabble.com/conditional-builds-td965715.html*
+
 **References**
 * [Usage of Conditionals](http://www.gnu.org/software/automake/manual/html_node/Usage-of-Conditionals.html)
