@@ -5,6 +5,14 @@ rails-docs
 * RailsApps [Website](http://railsapps.github.com/rails-application-templates.html), [GitHub](https://github.com/RailsApps)
 
 
+## Manage Data
+
+* [sferik/rails_admin](https://github.com/sferik/rails_admin)
+
+  > a Rails 3 engine that provides an easy-to-use interface for managing your data
+
+
+
 ## Facebook Graph API
 
 * [Facebook Graph API](https://developers.facebook.com/docs/reference/api/)
@@ -47,7 +55,33 @@ Rails 3.1
 
 #### SASS Twitter Bootstrap
 
-1. [jlong/sass-twitter-bootstrap](https://github.com/jlong/sass-twitter-bootstrap)
+1. **[thomas-mcdonald/bootstrap-sass](https://github.com/thomas-mcdonald/bootstrap-sass)**
+
+   ```bash
+     $ vim Gemfile
+     ...
+     gem 'sass-rails', " ~> 3.1.0"
+     + gem 'bootstrap-sass', '~> 2.0.3'
+     
+     $ bundle install
+   ```
+   
+   ```bash
+     $ mv app/assets/stylesheets/application.css app/assets/stylesheets/application.css.scss
+     $ vim app/assets/stylesheets/application.css.scss
+     
+     /*
+      * You're free to add application-wide styles to this file and they'll appear at
+      * the top of the compiled file, but it's generally better to create a new file per style scope.
+      *= require_self      
+      */
+
+      @import "bootstrap"; // <-- Add this, remove `*= require_tree .` from the top ^
+   ```
+
+2. [anjlab/bootstrap-rails](https://github.com/anjlab/bootstrap-rails)
+
+3. [jlong/sass-twitter-bootstrap](https://github.com/jlong/sass-twitter-bootstrap)
 
    > a 1:1 translation from Less to Sass
 
@@ -70,9 +104,9 @@ Rails 3.1
         + require twitter-bootstrap/bootstrap
       ```
 
-2. [ccocchi/sass-twitter-bootstrap-rails](https://github.com/ccocchi/sass-twitter-bootstrap-rails)
+4. [ccocchi/sass-twitter-bootstrap-rails](https://github.com/ccocchi/sass-twitter-bootstrap-rails)
 
-3. [seyhunak/twitter-bootstrap-rails](https://github.com/seyhunak/twitter-bootstrap-rails)
+5. [seyhunak/twitter-bootstrap-rails](https://github.com/seyhunak/twitter-bootstrap-rails)
 
    *Note: default CSS is LESS; option for SASS (out-of-box support in Rails 3 Asset Pipeline)*
 
