@@ -51,6 +51,25 @@ Rails 3.1
 
    > a 1:1 translation from Less to Sass
 
+   1. Add Twitter Bootstrap Sass CSS files to Rails project
+
+      ```bash
+        $ git clone https://github.com/jlong/sass-twitter-bootstrap.git # -> sass-twitter-bootstrap
+        $ cp -r \
+            "$HOME/Development/projects/github/forked/sass-twitter-bootstrap/lib/" \
+            "app/assets/stylesheets/twitter-bootstrap"
+      ```
+
+   2. *Bug fix*:
+         
+      > Twitter Bootstrap’s Less code (and the translated Sass version) was designed to be included once using the bootstrap.scss file, which in turns includes all of the other files.
+
+      ```bash
+        $ vim app/assets/stylesheets/application.css
+        - require_tree .
+        + require twitter-bootstrap/bootstrap
+      ```
+
 2. [ccocchi/sass-twitter-bootstrap-rails](https://github.com/ccocchi/sass-twitter-bootstrap-rails)
 
 3. [seyhunak/twitter-bootstrap-rails](https://github.com/seyhunak/twitter-bootstrap-rails)
@@ -59,7 +78,7 @@ Rails 3.1
 
     ```bash
       $ vim Gemfile
-      > gem 'twitter-bootstrap-rails', "~> 2.0.8"
+      + gem 'twitter-bootstrap-rails', "~> 2.0.8"
     ```
 
 #### LESS Twitter Bootstrap
