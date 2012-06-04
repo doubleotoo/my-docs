@@ -18,15 +18,53 @@ rails-docs
 3. Read through the example source code to learn more!
 
 
-Tutorials:
+#### Tutorials:
 * http://rubysource.com/heroku-the-new-face-of-facebook-development/
 * Sinatra Tutorial: http://rubysource.com/tag/justdoit/
 
-## Sample Facebook Canvas App
+#### Sample Facebook Canvas App
 
 	https://developers.facebook.com/docs/samples/canvas/
 	
 Rails 3.1
 
-* Twitter Bootstrap
-  [twitter-bootstrap-rails](https://github.com/seyhunak/twitter-bootstrap-rails)
+[Asset Pipeline](http://guides.rubyonrails.org/asset_pipeline.html#how-to-use-the-asset-pipeline)
+
+#### Install `Rails` v3.1
+
+   ```bash
+     $ rvm gemset create <website>
+     $ rvm gemset use <website>
+     $ gem install rails --version 3.1
+     $ rails new <website>
+     $ cd <website>
+   ```
+
+## Twitter Bootstrap
+
+* A good overview
+  http://rubysource.com/twitter-bootstrap-less-and-sass-understanding-your-options-for-rails-3-1/
+
+#### SASS Twitter Bootstrap
+
+1. [jlong/sass-twitter-bootstrap](https://github.com/jlong/sass-twitter-bootstrap)
+
+   > a 1:1 translation from Less to Sass
+
+2. [ccocchi/sass-twitter-bootstrap-rails](https://github.com/ccocchi/sass-twitter-bootstrap-rails)
+
+3. [seyhunak/twitter-bootstrap-rails](https://github.com/seyhunak/twitter-bootstrap-rails)
+
+   *Note: default CSS is LESS; option for SASS (out-of-box support in Rails 3 Asset Pipeline)*
+
+    ```bash
+      $ vim Gemfile
+      > gem 'twitter-bootstrap-rails', "~> 2.0.8"
+    ```
+
+#### LESS Twitter Bootstrap
+
+1. [metaskills/less-rails-bootstrap](https://github.com/metaskills/less-rails-bootstrap)
+
+
+
