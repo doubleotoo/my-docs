@@ -90,6 +90,14 @@ Rails 3.1
        + root :to => 'main#index'
      ```
 
+#### TODO: Compass
+
+Ruby Gem: https://github.com/Compass/compass-rails
+
+$ gem install compass
+$ compass install bootstrap
+
+
 2. [anjlab/bootstrap-rails](https://github.com/anjlab/bootstrap-rails)
 
 3. [jlong/sass-twitter-bootstrap](https://github.com/jlong/sass-twitter-bootstrap)
