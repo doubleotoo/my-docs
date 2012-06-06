@@ -27,3 +27,9 @@ python
    ```bash
      $ pip intsall cairosvg
    ```
+   
+   http://cairographics.org/
+   
+   ```bash
+     $ port install cairo
+   ```
