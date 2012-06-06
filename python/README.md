@@ -20,3 +20,16 @@ python
      (my_new_env)$ pip install ...
    ```
 
+## [cairosvg](http://cairosvg.org/): convert `.svg` to `.pdf`, `.png`, `.ps`
+
+1. Install
+
+   ```bash
+     $ pip intsall cairosvg
+   ```
+   
+   http://cairographics.org/
+   
+   ```bash
+     $ port install cairo
+   ```
