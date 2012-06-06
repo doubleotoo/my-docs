@@ -57,6 +57,8 @@ Rails 3.1
 
 1. **[thomas-mcdonald/bootstrap-sass](https://github.com/thomas-mcdonald/bootstrap-sass)**
 
+   (Demo app: https://github.com/rorlab/bootstrap-demo)
+
    ```bash
      $ vim Gemfile
      ...
