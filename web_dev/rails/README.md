@@ -79,6 +79,35 @@ Rails 3.1
       @import "bootstrap"; // <-- Add this, remove `*= require_tree .` from the top ^
    ```
    
+   ```bash
+     $ compass install --require "bootstrap-sass" bootstrap
+     directory images/ 
+     directory javascripts/ 
+     directory sass/ 
+     directory stylesheets/ 
+         create sass/styles.scss 
+         create images/glyphicons-halflings.png 
+         create images/glyphicons-halflings-white.png 
+         create javascripts/bootstrap-alert.js 
+         create javascripts/bootstrap-button.js 
+         create javascripts/bootstrap-carousel.js 
+         create javascripts/bootstrap-collapse.js 
+         create javascripts/bootstrap-dropdown.js 
+         create javascripts/bootstrap-modal.js 
+         create javascripts/bootstrap-popover.js 
+         create javascripts/bootstrap-scrollspy.js 
+         create javascripts/bootstrap-tab.js 
+         create javascripts/bootstrap-tooltip.js 
+         create javascripts/bootstrap-transition.js 
+         create javascripts/bootstrap-typeahead.js 
+         create stylesheets/styles.css 
+
+      To import your new stylesheets add the following lines of HTML (or equivalent) to your webpage:
+      <head>
+        <link href="/stylesheets/styles.css" rel="stylesheet" type="text/css" />
+      </head>
+   ```
+   
    *Reference: https://github.com/sferik/rails_admin/blob/master/app/assets/stylesheets/rails_admin/imports.css.scss.erb*
 
    * Create a controller for the Application root/index:
