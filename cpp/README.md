@@ -47,6 +47,43 @@ http://logging.apache.org/log4cxx/
   + `#include <string.h>`
   + `#include <stdio.h>`
 
+#### `GLIBCXX_3.4.11' not found
+
+The problem is that `./core` is linked with the wrong version of `libstdc++.so` in `/usr/lib64`
+instead of the one in `/nfs/apps/gcc/4.4.1/lib64`.
+
+```bash
+./core: /usr/lib64/libstdc++.so.6: version `GLIBCXX_3.4.11' not found (required by /home/too1/local/opt/apache/log4cxx/apache-log4cxx-0.10.0/../0.10.0/lib/liblog4cxx.so.10)
+./core: /usr/lib64/libstdc++.so.6: version `GLIBCXX_3.4.9' not found (required by /home/too1/local/opt/apache/log4cxx/apache-log4cxx-0.10.0/../0.10.0/lib/liblog4cxx.so.10)
+```
+
+```bash
+$ ldd core
+ linux-vdso.so.1 =>  (0x00007fffac3fd000)
+ liblog4cxx.so.10 => /home/too1/local/opt/apache/log4cxx/apache-log4cxx-0.10.0/../0.10.0/lib/liblog4cxx.so.10 (0x00002b5aa12cb000)
+	libaprutil-1.so.0 => /home/too1/local/opt/apache/log4cxx/apr-util/install/lib/libaprutil-1.so.0 (0x00002b5aa16b0000)
+	libexpat.so.0 => /lib64/libexpat.so.0 (0x00000034ac200000)
+	libapr-1.so.0 => /home/too1/local/opt/apache/log4cxx/apr/install/lib/libapr-1.so.0 (0x00002b5aa18fb000)
+	libuuid.so.1 => /lib64/libuuid.so.1 (0x00000034af600000)
+	librt.so.1 => /lib64/librt.so.1 (0x00000034ade00000)
+	libcrypt.so.1 => /lib64/libcrypt.so.1 (0x00000034bc400000)
+	libpthread.so.0 => /lib64/libpthread.so.0 (0x00000034aa600000)
+	libdl.so.2 => /lib64/libdl.so.2 (0x00000034a9e00000)
+	**libstdc++.so.6 => /nfs/apps/gcc/4.4.1/lib/../lib64/libstdc++.so.6 (0x00002b5aa1b29000)**
+	libm.so.6 => /lib64/libm.so.6 (0x00000034a9a00000)
+	libgcc_s.so.1 => /nfs/apps/gcc/4.4.1/lib/../lib64/libgcc_s.so.1 (0x00002b5aa1e34000)
+	libc.so.6 => /lib64/libc.so.6 (0x00000034a9600000)
+	/lib64/ld-linux-x86-64.so.2 (0x00000034a9200000)
+```
+
+Check `-rpath` link commands in the actual `g++` link command:
+
+```bash
+  $ libtool --debug core...
+  <get g++ link command at the end of the output>
+  <check that -rpath /nfs/apps/... comes before -rpath /usr/lib64
+```
+
 ## Building Apache Log4cxx with Apache ant
 http://logging.apache.org/log4cxx/building/ant.html
 
