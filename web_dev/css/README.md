@@ -1,5 +1,32 @@
 css
 ===
 
-## Animate Mixin for Compass/SASS
+## SASS (.scss, .sass)
+
+#### Animate Mixin for Compass/SASS
 http://thecssguru.freeiz.com/animate/
+
+#### Difference between `.scss` and `.sass`
+http://stackoverflow.com/questions/5654447/whats-the-difference-between-scss-and-sass
+
+    Sass is an extension of CSS3, adding nested rules, variables, mixins, selector inheritance,
+    and more. It’s translated to well-formatted, standard CSS using the command line tool or a
+    web-framework plugin.
+
+    Sass has two syntaxes. The new main syntax (as of Sass 3) is known as “SCSS” (for “Sassy CSS”),
+    and is a superset of CSS3’s syntax. This means that every valid CSS3 stylesheet is valid SCSS
+    as well. SCSS files use the extension .scss.
+
+    The second, older syntax is known as the indented syntax (or just “Sass”). Inspired by Haml’s
+    terseness, it’s intended for people who prefer conciseness over similarity to CSS. Instead of
+    brackets and semicolons, it uses the indentation of lines to specify blocks. Although no longer
+    the primary syntax, the indented syntax will continue to be supported. Files in the indented
+    syntax use the extension .sass.
+
+```bash
+  # Convert Sass to SCSS
+  $ sass-convert style.sass style.scss
+
+  # Convert SCSS to Sass
+  $ sass-convert style.scss style.sass
+```
