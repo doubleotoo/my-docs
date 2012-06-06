@@ -22,3 +22,11 @@ http://stackoverflow.com/questions/5654447/whats-the-difference-between-scss-and
     brackets and semicolons, it uses the indentation of lines to specify blocks. Although no longer
     the primary syntax, the indented syntax will continue to be supported. Files in the indented
     syntax use the extension .sass.
+
+```bash
+  # Convert Sass to SCSS
+  $ sass-convert style.sass style.scss
+
+  # Convert SCSS to Sass
+  $ sass-convert style.scss style.sass
+```
