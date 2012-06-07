@@ -11,7 +11,7 @@ C++
 
 For example, the macro `LOG4CXX_DEBUG`:
 
-```bash
+```C++
 /**
 Logs a message to a specified logger with the DEBUG level.
 
