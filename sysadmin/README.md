@@ -4,10 +4,13 @@ sysadmin
 ## Vagrant
 
 #### Ubuntu
+
+```bash
 sudo apt-get install g++-4.4
 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.4 20
 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.5 10
 sudo apt-get install git
+```
 
 #### Shared Folder
 
@@ -18,7 +21,7 @@ sudo apt-get install git
   config.vm.share_folder("shared_folder", "${HOME}/shared_folder", "shared_folder", :nfs => false)
 ```
 
-*Note: `NFS` is faster, but requires the host to have `nfsd` privileges.
+*Note: `NFS` is faster, but requires the host to have `nfsd` privileges.*
 
 ## Package Management
 
