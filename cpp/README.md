@@ -32,9 +32,37 @@ http://logging.apache.org/log4cxx/
 
 ## Building Apache Log4cxx with Autotools
 
-```bash
- $ ./configure --with-apr=/path/to/apr/install --with-apri-util=/path/to/apr-util/install
-```
+1. APR: Apache Portable Runtime Library (http://apr.apache.org/)
+
+   ```bash
+     $ wget http://www.gtlib.gatech.edu/pub/apache//apr/apr-1.4.6.tar.gz
+     $ tar xvzf apr-1.4.6.tar.gz
+     $ ./configure --prefix="$(pwd)/../apr/1.4.6"
+     $ make -j12
+   ```
+   
+   **apr-util**
+   ```bash
+     $ wget http://www.gtlib.gatech.edu/pub/apache//apr/apr-util-1.4.1.tar.gz
+     $ tar xzvf apr-util-1.4.1.tar.gz
+     
+     # Hack: Use `$APR_SOURCE` to get `rules.mk`
+     $ ./configure --prefix="$(pwd)/../apr-util/1.4.1" --with-apr="$(pwd)/../apr-1.4.6"
+     
+     # Then, use `$APR_INSTALL` to get `libapr-1.la`
+     $ ./configure --prefix="$(pwd)/../apr-util/1.4.1" --with-apr="$(pwd)/../apr/1.4.6"
+     $ make -j12
+     $ make -j24 install
+   ```
+
+2. Apache Log4cxx
+
+   ```bash
+     $ tar xzvf apache-log4cxx-0.10.0.tar.gz
+     $ ./configure --with-apr="$APR_INSTALL" --with-apr-util=/path/to/apr-util/install
+     $ make -j24
+     $ make -j24 install
+   ```
 
 **Error**: memmove was not declared in this scope https://issues.apache.org/jira/browse/LOGCXX-360
 
