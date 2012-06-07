@@ -3,6 +3,27 @@ C++
 
 # Log4cxx
 
+## LOG4CXX_<logger> macros
+
+```bash
+  $ vim $LOG4CXX/src/main/include/log4cxx/logger.h
+```
+
+For example, the macro `LOG4CXX_DEBUG`:
+
+```bash
+/**
+Logs a message to a specified logger with the DEBUG level.
+
+@param logger the logger to be used.
+@param message the message string to log.
+*/
+#define LOG4CXX_DEBUG(logger, message) { \
+        if (LOG4CXX_UNLIKELY(logger->isDebugEnabled())) {\
+           ::log4cxx::helpers::MessageBuffer oss_; \
+           logger->forcedLog(::log4cxx::Level::getDebug(), oss_.str(oss_ << message), LOG4CXX_LOCATION); }}
+```
+
 ## Log4j.properties
 
 ```
