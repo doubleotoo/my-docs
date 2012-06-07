@@ -46,22 +46,51 @@ http://logging.apache.org/log4cxx/
      $ wget http://www.gtlib.gatech.edu/pub/apache//apr/apr-util-1.4.1.tar.gz
      $ tar xzvf apr-util-1.4.1.tar.gz
      
-     # Hack: Use `$APR_SOURCE` to get `rules.mk`
+     # **Hack**: Use `$APR_SOURCE` to get `rules.mk`
      $ ./configure --prefix="$(pwd)/../apr-util/1.4.1" --with-apr="$(pwd)/../apr-1.4.6"
      
      # Then, use `$APR_INSTALL` to get `libapr-1.la`
-     $ ./configure --prefix="$(pwd)/../apr-util/1.4.1" --with-apr="$(pwd)/../apr/1.4.6"
+     $ ./configure --prefix="$(pwd)/../apr-util/1.4.1" --with-apr="$(pwd)/../apr/1.4.6" --with-expat=builtin
      $ make -j12
      $ make -j24 install
    ```
 
 2. Apache Log4cxx
 
+   *Note: must keep `APR` build trees because `apr-config` references it (due to above hack)*
+
    ```bash
      $ tar xzvf apache-log4cxx-0.10.0.tar.gz
      $ ./configure --with-apr="$APR_INSTALL" --with-apr-util=/path/to/apr-util/install
      $ make -j24
      $ make -j24 install
+     
+     $ ldd log4cxx/0.10.0/lib/liblog4cxx.so
+	linux-vdso.so.1 =>  (0x00007fff003fd000)
+	libaprutil-1.so.0 => /home/too1/local/opt/apache/apr-util-1.4.1/../apr-util/1.4.1/lib/libaprutil-1.so.0 (0x00002af489357000)
+	libexpat.so.0 => /home/too1/local/opt/apache/apr-util-1.4.1/../apr-util/1.4.1/lib/libexpat.so.0 (0x00002af489578000)
+	libapr-1.so.0 => /home/too1/local/opt/apache/apr-1.4.6/../apr/1.4.6/lib/libapr-1.so.0 (0x00002af48979a000)
+	libuuid.so.1 => /lib64/libuuid.so.1 (0x00002af4899f1000)
+	librt.so.1 => /lib64/librt.so.1 (0x00002af489bf6000)
+	libcrypt.so.1 => /lib64/libcrypt.so.1 (0x00002af489dff000)
+	libpthread.so.0 => /lib64/libpthread.so.0 (0x00002af48a037000)
+	libdl.so.2 => /lib64/libdl.so.2 (0x00002af48a253000)
+	**libstdc++.so.6 => /usr/lib64/libstdc++.so.6 (0x00002af48a457000)**
+	libm.so.6 => /lib64/libm.so.6 (0x00002af48a757000)
+	libc.so.6 => /lib64/libc.so.6 (0x00002af48a9db000)
+	libgcc_s.so.1 => /lib64/libgcc_s.so.1 (0x00002af48ad32000)
+	/lib64/ld-linux-x86-64.so.2 (0x00000034a9200000)
+   ```
+   
+   ```bash
+     $ mkdir workspace
+     $ cd workspace
+     $ vi test.cpp
+     $ export LD_LIBRARY_PATH=$(pwd)/../log4cxx/0.10.0/lib:$LD_LIBRARY_PATH
+     $ g++ hello.cpp -I../log4cxx/0.10.0/include -L../log4cxx/0.10.0/lib -llog4cxx
+     $ ./a.out 
+     0 [0x2b48c9dba6e0] FATAL MyApp null - Entering application.
+     0 [0x2b48c9dba6e0] INFO MyApp null - Exiting application.
    ```
 
 **Error**: memmove was not declared in this scope https://issues.apache.org/jira/browse/LOGCXX-360
