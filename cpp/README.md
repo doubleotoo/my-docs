@@ -211,3 +211,70 @@ http://logging.apache.org/log4cxx/building/ant.html
   [exec] checking for memmove... yes
   [exec] checking for bcopy... yes
 ```
+
+## Pre-processor Macros
+
+#### Macro "Blocks"
+
+[C multi-line macro: do/while(0) vs scope block](http://stackoverflow.com/questions/1067226/c-multi-line-macro-do-while0-vs-scope-block)
+
+> Answer found in google's first hit: http://bytes.com/groups/c/219859-do-while-0-macro-substitutions
+
+> Andrey Tarasevich:
+
+> The whole idea of using 'do/while' version is to make a macro which will expand into a regular statement, not into a compound statement. This is done in order to make the use of function-style macros uniform with the use of ordinary functions in all contexts.
+
+> Consider the following code sketch
+
+> ```C++
+if (<condition>)
+  foo(a);
+else
+  bar(a);
+```
+
+> where 'foo' and 'bar' are ordinary functions. Now imagine that you'd like to replace function 'foo' with a macro of the above nature
+
+> ```C++
+if (<condition>)
+  CALL_FUNCS(a);
+else
+ bar(a);
+```
+
+> Now, if your macro is defined in accordance with the second approach (just '{' and '}') the code will no longer compile, because the 'true' branch of 'i' is now represented by a compound statement. And when you put a ';' after this compound statement, you finished the whole 'if' statement, thus orphaning the 'else' branch (hence the compilation error).
+
+> One way to correct this problem is to remember not to put ';' after macro "invocations"
+
+> ```C++
+if (<condition>)
+  CALL_FUNCS(a)
+else
+  bar(a);
+```
+
+> This will compile and work as expected, but this is not uniform. The more elegant solution is to make sure that macro expand into a regular statement, not into a compound one. One way to achieve that is to define the macro as follows
+
+> ```C++
+#define CALL_FUNCS(x) \
+do { \
+  func1(x); \
+  func2(x); \
+  func3(x); \
+} while (0)
+```
+
+> Now this code
+
+> ```C++
+if (<condition>)
+  CALL_FUNCS(a);
+else
+  bar(a);
+```
+
+> will compile without any problems.
+
+> However, note the small but important difference between my definition of 'CALL_FUNCS' and the first version in your message. I didn't put a ';' after '} while (0)'. Putting a ';' at the end of that definition would immediately defeat the entire point of using 'do/while' and make that macro pretty much equivalent to the compound-statement version.
+
+> I don't know why the author of the code you quoted in your original message put this ';' after 'while (0)'. In this form both variants are equivalent. The whole idea behind using 'do/while' version is not to include this final ';' into the macro (for the reasons that I explained above).
