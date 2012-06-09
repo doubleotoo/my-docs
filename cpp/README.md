@@ -61,7 +61,7 @@ log4j.appender.R.layout=org.apache.log4j.PatternLayout
 log4j.appender.R.layout.ConversionPattern=%d %p %t %c - %m%n
 ```
 
-### NDC: Nested Diagnostic Contexts
+### NDC: Nested Diagnostic Contexts `%x`
 
 http://logging.apache.org/log4cxx/apidocs/classlog4cxx_1_1_n_d_c.html
 
@@ -336,7 +336,16 @@ MACRO(#,"hello")
 
 > > The resulting completely macro-replaced preprocessing token sequence is not processed as a preprocessing directive even if it resembles one.
 
-## Windows (MSVC)
+## Current function name
+
+* C99 predefined identifier `__func__`.
+* [BOOST_CURRENT_FUNCTION](http://www.boost.org/doc/libs/1_49_0/libs/utility/current_function.html)
+
+## File and Line number
+
+http://www.cplusplus.com/doc/tutorial/preprocessor/
+
+# Windows (MSVC)
 
 ### Disable warnings
 
