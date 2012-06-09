@@ -278,3 +278,24 @@ else
 > However, note the small but important difference between my definition of 'CALL_FUNCS' and the first version in your message. I didn't put a ';' after '} while (0)'. Putting a ';' at the end of that definition would immediately defeat the entire point of using 'do/while' and make that macro pretty much equivalent to the compound-statement version.
 
 > I don't know why the author of the code you quoted in your original message put this ';' after 'while (0)'. In this form both variants are equivalent. The whole idea behind using 'do/while' version is not to include this final ';' into the macro (for the reasons that I explained above).
+
+#### Macro that expands to Macro (not possible!)
+
+http://stackoverflow.com/questions/1135822/escaping-a-symbol-in-a-define-macro
+
+> It is possible to insert a hash token into the preprocessed token stream. You can do it as follows:
+
+> ```C++
+#define MACRO(hash, name) hash include name
+MACRO(#,"hello")
+```
+
+> expands to:
+
+> ```C++
+# include "hello"
+```
+
+> However, the standard explicitly rules out any further analysis of such line for the existence of preprocessing directives [cpp.rescan]:
+
+> > The resulting completely macro-replaced preprocessing token sequence is not processed as a preprocessing directive even if it resembles one.
