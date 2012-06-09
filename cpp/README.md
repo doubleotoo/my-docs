@@ -1,9 +1,13 @@
 C++
 ===
 
-# Log4cxx
+# Logging
 
-## LOG4CXX_<logger> macros
+## Log4cxx
+
+http://logging.apache.org/log4cxx/
+
+### LOG4CXX_<logger> macros
 
 ```bash
   $ vim $LOG4CXX/src/main/include/log4cxx/logger.h
@@ -57,7 +61,19 @@ log4j.appender.R.layout=org.apache.log4j.PatternLayout
 log4j.appender.R.layout.ConversionPattern=%d %p %t %c - %m%n
 ```
 
-http://logging.apache.org/log4cxx/
+### NDC: Nested Diagnostic Contexts
+
+http://logging.apache.org/log4cxx/apidocs/classlog4cxx_1_1_n_d_c.html
+
+"Pattern Languages of Program Design 3" by Robert C. Martin
+http://www.amazon.com/Pattern-Languages-Program-Design-v/dp/0201310112
+
+> a nested diagnostic context, or ndc in short, is an instrument to distinguish interleaved
+> log output from different sources. log output is typically interleaved when a server handles
+> multiple clients near-simultaneously.
+
+`${LOG4CXX}/src/main/include/log4cxx/ndc.h`
+
 
 # Installation
 
@@ -299,3 +315,14 @@ MACRO(#,"hello")
 > However, the standard explicitly rules out any further analysis of such line for the existence of preprocessing directives [cpp.rescan]:
 
 > > The resulting completely macro-replaced preprocessing token sequence is not processed as a preprocessing directive even if it resembles one.
+
+## Windows (MSVC)
+
+### Disable warnings
+
+```C++
+  #if defined(_MSC_VER)
+  #pragma warning ( push )
+  #pragma warning ( disable: 4231 4251 4275 4786 )
+  #endif
+```
