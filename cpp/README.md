@@ -72,7 +72,27 @@ http://www.amazon.com/Pattern-Languages-Program-Design-v/dp/0201310112
 > log output from different sources. log output is typically interleaved when a server handles
 > multiple clients near-simultaneously.
 
-`${LOG4CXX}/src/main/include/log4cxx/ndc.h`
+`${LOG4CXX}/src/main/include/log4cxx/ndc.h`:
+
+> ```C++
+  /**
+   Creates a nested diagnostic context.
+   Since java performs no automatic cleanup of objects when a
+   scope is left, in log4j push() and pop() must be used
+   to manage the NDC. For convenience, log4cxx provides∞
+   an NDC constructor and destructor which simply call the push() and
+   pop() methods, allowing for automatic cleanup when the current
+   scope ends.
+
+>    @param message The new diagnostic context information.
+   @see The #push method.
+   */
+  NDC(const std::string& message);
+  
+>   ...
+  static LogString pop();
+  static void push(const std::string& message);
+```
 
 
 # Installation
