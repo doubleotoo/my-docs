@@ -3,6 +3,21 @@ sysadmin
 
 ## Vagrant
 
+#### Vagran SSH keys
+
+Example `postinstall.sh`:
+
+```bash
+#Installing vagrant keys
+mkdir /home/vagrant/.ssh
+chmod 700 /home/vagrant/.ssh
+cd /home/vagrant/.ssh
+wget --no-check-certificate 'https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub' -O authorized_keys
+chown -R vagrant /home/vagrant/.ssh
+```
+
+**Important**: disable the SSL certificate check, e.g. `wget --no-check-certificate`.
+
 #### Ubuntu
 
 ```bash
