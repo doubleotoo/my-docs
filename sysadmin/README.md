@@ -3,6 +3,8 @@ sysadmin
 
 ## Vagrant
 
+**Vagrant file options**: http://vagrantup.com/v1/docs/vagrantfile.html
+
 #### Vagran SSH keys
 
 Example `postinstall.sh`:
@@ -37,6 +39,17 @@ sudo apt-get install git
 ```
 
 *Note: `NFS` is faster, but requires the host to have `nfsd` privileges.*
+
+#### Customize VM before boot
+
+For example, increase the VM's memory:
+
+```Ruby
+  Vagrant::Config.run do |config|
+    # ..
+    config.vm.customize ["modifyvm", :id, "--memory", 1024]
+  end
+```
 
 ## Package Management
 
