@@ -40,7 +40,6 @@ apt-get remove --purge
 apt-get clean
 apt-get autoremove
 
-```bash
 sudo apt-get install git
 sudo apt-get install libboost1.42-all-dev
 sudo apt-get install g++-4.4 autoconf2.64 gfortran-4.4 libtool flex bison ghostscript
@@ -54,6 +53,8 @@ sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.5 10
 ```bash
   $ ../ROSE/configure --prefix=$(pwd)/../install --with-boost=/usr --without-java
 ```
+
+**Important**: disable SSH timeout
 
 #### Shared Folder
 
