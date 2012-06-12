@@ -8,6 +8,33 @@ sudo apt-get install g++-4.4
 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.4 20
 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.5 10
 sudo apt-get install git
+sudo apt-get install libboost-dev-all
+sudo apt-get install libboost.*dev
+sudo apt-get install autoconf automake autoproject libtool
+  TODO: autoconf2.64 (2.67 config.status error?)
+sudo apt-get install gfortran-4.4
+sudo apt-get install flex
+sudo apt-get install bison
+sudo apt-get install ghostscript
+
+apt-get remove --purge
+apt-get clean
+apt-get autoremove
+
+```bash
+sudo apt-get install git
+sudo apt-get install libboost1.42-all-dev
+sudo apt-get install g++-4.4 autoconf2.64 gfortran-4.4 libtool flex bison ghostscript
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.4 20
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.5 10
+
+sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.4 20
+sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.5 10
+```
+
+```bash
+  $ ../ROSE/configure --prefix=$(pwd)/../install --with-boost=/usr --without-java
+```
 
 #### Shared Folder
 

@@ -71,15 +71,15 @@ http://logging.apache.org/log4cxx/
      $ ./configure --prefix="$(pwd)/../apr/1.4.6"
      $ make -j12
    ```
-   
+
    **apr-util**
    ```bash
      $ wget http://www.gtlib.gatech.edu/pub/apache//apr/apr-util-1.4.1.tar.gz
      $ tar xzvf apr-util-1.4.1.tar.gz
-     
+
      # **Hack**: Use `$APR_SOURCE` to get `rules.mk`
      $ ./configure --prefix="$(pwd)/../apr-util/1.4.1" --with-apr="$(pwd)/../apr-1.4.6"
-     
+
      # Then, use `$APR_INSTALL` to get `libapr-1.la`
      $ ./configure --prefix="$(pwd)/../apr-util/1.4.1" --with-apr="$(pwd)/../apr/1.4.6" --with-expat=builtin
      $ make -j12
