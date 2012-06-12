@@ -3,7 +3,26 @@ sysadmin
 
 ## Vagrant
 
+**Vagrant file options**: http://vagrantup.com/v1/docs/vagrantfile.html
+
+#### Vagran SSH keys
+
+Example `postinstall.sh`:
+
+```bash
+#Installing vagrant keys
+mkdir /home/vagrant/.ssh
+chmod 700 /home/vagrant/.ssh
+cd /home/vagrant/.ssh
+wget --no-check-certificate 'https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub' -O authorized_keys
+chown -R vagrant /home/vagrant/.ssh
+```
+
+**Important**: disable the SSL certificate check, e.g. `wget --no-check-certificate`.
+
 #### Ubuntu
+
+```bash
 sudo apt-get install g++-4.4
 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.4 20
 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.5 10
@@ -45,7 +64,18 @@ sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.5 10
   config.vm.share_folder("shared_folder", "${HOME}/shared_folder", "shared_folder", :nfs => false)
 ```
 
-*Note: `NFS` is faster, but requires the host to have `nfsd` privileges.
+*Note: `NFS` is faster, but requires the host to have `nfsd` privileges.*
+
+#### Customize VM before boot
+
+For example, increase the VM's memory:
+
+```Ruby
+  Vagrant::Config.run do |config|
+    # ..
+    config.vm.customize ["modifyvm", :id, "--memory", 1024]
+  end
+```
 
 ## Package Management
 

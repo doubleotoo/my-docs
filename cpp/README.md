@@ -1,9 +1,13 @@
 C++
 ===
 
-# Log4cxx
+# Logging
 
-## LOG4CXX_<logger> macros
+## Log4cxx
+
+http://logging.apache.org/log4cxx/
+
+### LOG4CXX_<logger> macros
 
 ```bash
   $ vim $LOG4CXX/src/main/include/log4cxx/logger.h
@@ -57,7 +61,39 @@ log4j.appender.R.layout=org.apache.log4j.PatternLayout
 log4j.appender.R.layout.ConversionPattern=%d %p %t %c - %m%n
 ```
 
-http://logging.apache.org/log4cxx/
+### NDC: Nested Diagnostic Contexts `%x`
+
+http://logging.apache.org/log4cxx/apidocs/classlog4cxx_1_1_n_d_c.html
+
+"Pattern Languages of Program Design 3" by Robert C. Martin
+http://www.amazon.com/Pattern-Languages-Program-Design-v/dp/0201310112
+
+> a nested diagnostic context, or ndc in short, is an instrument to distinguish interleaved
+> log output from different sources. log output is typically interleaved when a server handles
+> multiple clients near-simultaneously.
+
+`${LOG4CXX}/src/main/include/log4cxx/ndc.h`:
+
+> ```C++
+  /**
+   Creates a nested diagnostic context.
+   Since java performs no automatic cleanup of objects when a
+   scope is left, in log4j push() and pop() must be used
+   to manage the NDC. For convenience, log4cxx provides∞
+   an NDC constructor and destructor which simply call the push() and
+   pop() methods, allowing for automatic cleanup when the current
+   scope ends.
+
+>    @param message The new diagnostic context information.
+   @see The #push method.
+   */
+  NDC(const std::string& message);
+  
+>   ...
+  static LogString pop();
+  static void push(const std::string& message);
+```
+
 
 # Installation
 
@@ -210,4 +246,112 @@ http://logging.apache.org/log4cxx/building/ant.html
 ```bash
   [exec] checking for memmove... yes
   [exec] checking for bcopy... yes
+```
+
+## Pre-processor Macros
+
+#### Macro "Blocks"
+
+[C multi-line macro: do/while(0) vs scope block](http://stackoverflow.com/questions/1067226/c-multi-line-macro-do-while0-vs-scope-block)
+
+> Answer found in google's first hit: http://bytes.com/groups/c/219859-do-while-0-macro-substitutions
+
+> Andrey Tarasevich:
+
+> The whole idea of using 'do/while' version is to make a macro which will expand into a regular statement, not into a compound statement. This is done in order to make the use of function-style macros uniform with the use of ordinary functions in all contexts.
+
+> Consider the following code sketch
+
+> ```C++
+if (<condition>)
+  foo(a);
+else
+  bar(a);
+```
+
+> where 'foo' and 'bar' are ordinary functions. Now imagine that you'd like to replace function 'foo' with a macro of the above nature
+
+> ```C++
+if (<condition>)
+  CALL_FUNCS(a);
+else
+ bar(a);
+```
+
+> Now, if your macro is defined in accordance with the second approach (just '{' and '}') the code will no longer compile, because the 'true' branch of 'i' is now represented by a compound statement. And when you put a ';' after this compound statement, you finished the whole 'if' statement, thus orphaning the 'else' branch (hence the compilation error).
+
+> One way to correct this problem is to remember not to put ';' after macro "invocations"
+
+> ```C++
+if (<condition>)
+  CALL_FUNCS(a)
+else
+  bar(a);
+```
+
+> This will compile and work as expected, but this is not uniform. The more elegant solution is to make sure that macro expand into a regular statement, not into a compound one. One way to achieve that is to define the macro as follows
+
+> ```C++
+#define CALL_FUNCS(x) \
+do { \
+  func1(x); \
+  func2(x); \
+  func3(x); \
+} while (0)
+```
+
+> Now this code
+
+> ```C++
+if (<condition>)
+  CALL_FUNCS(a);
+else
+  bar(a);
+```
+
+> will compile without any problems.
+
+> However, note the small but important difference between my definition of 'CALL_FUNCS' and the first version in your message. I didn't put a ';' after '} while (0)'. Putting a ';' at the end of that definition would immediately defeat the entire point of using 'do/while' and make that macro pretty much equivalent to the compound-statement version.
+
+> I don't know why the author of the code you quoted in your original message put this ';' after 'while (0)'. In this form both variants are equivalent. The whole idea behind using 'do/while' version is not to include this final ';' into the macro (for the reasons that I explained above).
+
+#### Macro that expands to Macro (not possible!)
+
+http://stackoverflow.com/questions/1135822/escaping-a-symbol-in-a-define-macro
+
+> It is possible to insert a hash token into the preprocessed token stream. You can do it as follows:
+
+> ```C++
+#define MACRO(hash, name) hash include name
+MACRO(#,"hello")
+```
+
+> expands to:
+
+> ```C++
+# include "hello"
+```
+
+> However, the standard explicitly rules out any further analysis of such line for the existence of preprocessing directives [cpp.rescan]:
+
+> > The resulting completely macro-replaced preprocessing token sequence is not processed as a preprocessing directive even if it resembles one.
+
+## Current function name
+
+* C99 predefined identifier `__func__`.
+* [BOOST_CURRENT_FUNCTION](http://www.boost.org/doc/libs/1_49_0/libs/utility/current_function.html)
+
+## File and Line number
+
+http://www.cplusplus.com/doc/tutorial/preprocessor/
+
+# Windows (MSVC)
+
+### Disable warnings
+
+```C++
+  #if defined(_MSC_VER)
+  #pragma warning ( push )
+  #pragma warning ( disable: 4231 4251 4275 4786 )
+  #endif
 ```
