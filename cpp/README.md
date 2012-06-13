@@ -1,6 +1,20 @@
 C++
 ===
 
+# GCC Compiler
+
+## Install
+
+```bash
+#!/bin/bash
+source /nfs/apps/gmp/latest/setup.sh
+source /nfs/apps/mpc/latest/setup.sh
+source /nfs/apps/mpfr/latest/setup.sh
+./configure --prefix="${HOME}/opt/gcc/4.6.1 --enable-languages=c,c++,fortran --with-gmp=/nfs/apps/gmp/4.3.2/ --with-mpfr=/nfs/apps/mpfr/3.0.0/ --with-mpc=/nfs/apps/mpc/0.8.2/
+make -j16
+make -j16 install
+```
+
 # Logging
 
 ## Log4cxx
