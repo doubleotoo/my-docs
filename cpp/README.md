@@ -5,6 +5,8 @@ C++
 
 ## Install
 
+https://gist.github.com/2927038
+
 ```bash
 #!/bin/bash
 source /nfs/apps/gmp/latest/setup.sh
