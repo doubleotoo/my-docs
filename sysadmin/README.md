@@ -183,3 +183,7 @@ For example, increase the VM's memory:
   Press enter to keep the current choice[*], or type selection number:
 ```
 
+## Fedora
+
+#### How to fix the “Cannot retrieve repository metadata (repomd.xml)” error in Fedora?
+http://digitizor.com/2009/06/17/how-to-fix-the-cannot-retrieve-repository-metadata-repomd-xml-error-in-fedora-11/
