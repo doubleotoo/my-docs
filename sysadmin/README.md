@@ -1,6 +1,16 @@
 sysadmin
 ========
 
+## VirtualBox
+
+```bash
+  $ VBoxManage list vms
+  $ VBoxManage showvminfo <vm>
+  $ VBoxManage unregister <vm>
+  $ VBoxManage controlvm <vm> poweroff
+  $ VBoxManage startvm --type headless <vm>
+```
+
 ## Vagrant
 
 **Vagrant file options**: http://vagrantup.com/v1/docs/vagrantfile.html
