@@ -187,3 +187,23 @@ For example, increase the VM's memory:
 
 #### How to fix the “Cannot retrieve repository metadata (repomd.xml)” error in Fedora?
 http://digitizor.com/2009/06/17/how-to-fix-the-cannot-retrieve-repository-metadata-repomd-xml-error-in-fedora-11/
+
+#### Installing older software
+
+> [I]t is possible to install alternate versions of gcc on Fedora. Just not from packages -- you'll need the source,
+> available from http://gcc.gnu.org/. Look to download gcc-4.5.3.tar.gz from one of the download mirrors.
+
+> Download and unpack the gcc source tarball. Make sure your Fedora 16 has the packages necessary for building:
+
+> ```bash
+    $ yum install gcc mpfr-devel libmpc libmpc-devel glibc-devel
+  ```
+  
+> Then create a new, empty build directory and build gcc with a suffix of 45 -- you'll build compilers
+> `gcc45` and `g++45` for example. You might want a new, separate install directory like `/usr/local/gcc45/`
+
+> ```bash
+    $ ${GCC}/configure --prefix=/usr/local --program-suffix=45 --enable-languages=c,c++
+    $ make
+    $ sudo make install
+  ```
