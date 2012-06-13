@@ -1,7 +1,7 @@
 SSH
 ===
 
-## ``~/.ssh/config`
+## `~/.ssh/config`
 
 ```bash
   # == ControlMaster
