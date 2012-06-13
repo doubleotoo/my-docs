@@ -185,10 +185,18 @@ For example, increase the VM's memory:
 
 ## Fedora
 
+### Yum
+
+**Commands**: http://yum.baseurl.org/wiki/YumCommands
+
 #### How to fix the “Cannot retrieve repository metadata (repomd.xml)” error in Fedora?
 http://digitizor.com/2009/06/17/how-to-fix-the-cannot-retrieve-repository-metadata-repomd-xml-error-in-fedora-11/
 
 #### Installing older software
+
+```bash
+$ yum downgrade <pkg>
+```
 
 > [I]t is possible to install alternate versions of gcc on Fedora. Just not from packages -- you'll need the source,
 > available from http://gcc.gnu.org/. Look to download gcc-4.5.3.tar.gz from one of the download mirrors.
