@@ -11,6 +11,25 @@ sysadmin
   $ VBoxManage startvm --type headless <vm>
 ```
 
+```bash
+  Step [0] was successfully - saving state
+
+  Waiting for ssh login with user vagrant to sshd on port => 7222 to work
+  ......................................................................................................................................................................................................Transferring /home/hudson-rose/Applications/vagrant/fedora/16/x86_64/default/definitions/fedora-16-x86_64/postinstall.sh to postinstall.sh 
+  ..
+
+  # Hanging - endless wait for ssh on port 7222
+  # https://github.com/jedi4ever/veewee/issues/116
+  $ VBoxManage startvm --type headless fedora-16-x86_64
+  Waiting for VM "fedora-16-x86_64" to power on...
+  VM "fedora-16-x86_64" has been successfully started.
+  
+  ...
+  
+  ***echo 'vagrant'|sudo -S sh 'postinstall.sh'
+  Executing command: echo 'vagrant'|sudo -S sh 'postinstall.sh'
+```
+
 ## Vagrant
 
 **Vagrant file options**: http://vagrantup.com/v1/docs/vagrantfile.html
