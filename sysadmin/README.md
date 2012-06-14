@@ -215,3 +215,23 @@ $ yum downgrade <pkg>
     $ make
     $ sudo make install
   ```
+  
+#### `Failed to fetch <PACKAGE> Hash Sum mismatch`
+
+```bash
+  $ sudo apt-get clean
+```
+
+You could try deleting and reloading the package lists:
+
+```bash
+  $ sudo rm -rf /var/lib/apt/lists/* 
+  $ sudo apt-get update
+```
+
+Change site mirror: https://wiki.ubuntu.com/Mirrors
+
+```bash
+  $ sudo vi /etc/apt/sources.list
+  $ sudo apt-get update
+```
