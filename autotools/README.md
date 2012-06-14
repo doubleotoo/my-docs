@@ -30,3 +30,30 @@ autotools
 
 **References**
 * [Usage of Conditionals](http://www.gnu.org/software/automake/manual/html_node/Usage-of-Conditionals.html)
+
+## Libtool
+
+#### Versioning (`-version-info`)
+
+`configure.ac`:
+
+```Autoconf
+dnl +1 : ? : +1  == new interface that does not break old one
+dnl +1 : ? : 0   == new interface that breaks old one
+dnl  ? : ? : 0   == no new interfaces, but breaks apps
+dnl  ? :+1 : ?   == just some internal changes, nothing breaks but might work
+dnl                 better
+dnl CURRENT : REVISION : AGE
+ROSE_LT_VERSION="0:0:0"
+AC_SUBST(ROSE_LT_VERSION)
+```
+
+`Makefile.am`:
+
+```Automake
+librose_la_LDFLAGS = \
+  -version-info @LT_VERSION@
+```
+
+**References**
+* [libtool/Versioning](http://www.gnu.org/software/libtool/manual/html_node/Versioning.html#Versioning)
