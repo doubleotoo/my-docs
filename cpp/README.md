@@ -5,6 +5,10 @@ C++
 
 ## Install
 
+http://gcc.gnu.org/wiki/FAQ#configure
+
+`[$GCC/contrib/download_prerequisites](http://c-cpp.r3dcode.com/download/gcc/4/6.2/contrib/download_prerequisites)`
+
 https://gist.github.com/2927038
 
 ```bash
