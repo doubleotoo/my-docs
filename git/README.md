@@ -20,3 +20,16 @@ Tell cURL to not check for SSL certificates:
      # set global configuration
      $ git config --global http.sslVerify false
    ```
+
+## Rebase
+
+[Rebasing Merge Commits](http://notes.envato.com/developers/rebasing-merge-commits-in-git/)
+
+```bash
+  $ git fetch origin
+  $ git rebase --preserve-merges origin/master
+```
+
+```bash
+  $ git pull --rebase # can't supply --preserve-merges
+```
