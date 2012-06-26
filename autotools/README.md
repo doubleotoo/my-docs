@@ -1,6 +1,13 @@
 autotools
 =========
 
+## Autoconf
+
+Examples of package configuration wrappers, `pkg-config`:
+
+* LLVM
+* https://github.com/vslavik/xmlwrapp
+
 ## Automake
 
 #### Conditionals

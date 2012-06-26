@@ -33,3 +33,7 @@ Tell cURL to not check for SSL certificates:
 ```bash
   $ git pull --rebase # can't supply --preserve-merges
 ```
+
+## Diff
+
+In-browser diff: [rubychan/water](https://github.com/rubychan/water)

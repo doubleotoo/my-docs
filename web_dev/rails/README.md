@@ -172,4 +172,7 @@ Progress bar: https://github.com/chriseppstein/sass-recipes/blob/master/progress
 1. [metaskills/less-rails-bootstrap](https://github.com/metaskills/less-rails-bootstrap)
 
 
+## Code Browser
+
+* [rubychan/coderay](https://github.com/rubychan/coderay)
 

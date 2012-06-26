@@ -49,6 +49,12 @@ chown -R vagrant /home/vagrant/.ssh
 
 **Important**: disable the SSL certificate check, e.g. `wget --no-check-certificate`.
 
+#### Error: Read-only filesystem
+https://www.virtualbox.org/ticket/10031
+
+Periodic flush:
+https://www.virtualbox.org/manual/ch12.html#configPeriodicFlush
+
 #### Ubuntu
 
 ```bash
