@@ -30,6 +30,34 @@ sysadmin
   Executing command: echo 'vagrant'|sudo -S sh 'postinstall.sh'
 ```
 
+#### Import Virtual Appliance (.ova)
+
+```bash
+[rose-dev@rose-git github]$ VBoxManage import github-enterprise-11.10.270-i386.ova 
+0%...10%...20%...30%...40%...50%...60%...70%...80%...90%...100%
+Interpreting /data/home/rose-dev/applications/github/github-enterprise-11.10.270-i386.ova...
+OK.
+Disks:  gh-root753570270208http://www.vmware.com/interfaces/specifications/vmdk.html#streamOptimizedgithub-enterprise-11.10.270-i386-disk1.vmdk1588291584-1Virtual system 0:
+ 0: Suggested OS type: "Ubuntu"
+    (change with "--vsys 0 --ostype <type>"; use "list ostypes" to list all possible values)
+ 1: Suggested VM name "GitHubEnterprise"
+    (change with "--vsys 0 --vmname <name>")
+ 2: Number of CPUs: 2
+    (change with "--vsys 0 --cpus <n>")
+ 3: Guest memory: 8192 MB
+    (change with "--vsys 0 --memory <MB>")
+ 4: Network adapter: orig Network, config 1, extra type=Bridged
+ 5: SCSI controller, type LsiLogic
+    (change with "--vsys 0 --unit 5 --scsitype {BusLogic|LsiLogic}";
+    disable with "--vsys 0 --unit 5 --ignore")
+ 6: Hard disk image: source image=github-enterprise-11.10.270-i386-disk1.vmdk, target path=/data/home/rose-dev/VirtualBox VMs/GitHubEnterprise/github-enterprise-11.10.270-i386-disk1.vmdk, controller=5;channel=0
+    (change target path with "--vsys 0 --unit 6")
+
+[rose-dev@rose-git ~]$ VBoxManage startvm --type headless GitHubEnterprise
+Waiting for VM "GitHubEnterprise" to power on...
+VM "GitHubEnterprise" has been successfully started.
+```
+
 ## Vagrant
 
 **Vagrant file options**: http://vagrantup.com/v1/docs/vagrantfile.html
