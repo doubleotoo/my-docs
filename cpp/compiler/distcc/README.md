@@ -2,6 +2,37 @@ C++ > Compiler > distcc
 =======================
 
 ```bash
+$ time pump make -j -C src/
+__________Using distcc-pump from /Users/too1/Development/opt/macports/install/bin
+/Users/too1/Development/opt/macports/install/bin/pump: error: pump mode requested, but distcc hosts list does not contain any hosts with ',cpp' option
+
+$ vim ~/.distcc/hosts
+...
+
+$ time pump make -j -C src/
+__________Using distcc-pump from /Users/too1/Development/opt/macports/install/bin
+distcc[27826] (dcc_get_protover_from_features) ERROR: pump mode (',cpp') requires compression (',lzo')
+distcc[27826] (dcc_parse_options) ERROR: invalid host options: ,cpp
+sweetpea/4,cpp
+bigflax/4,cpp
+lisianthus/4,cpp
+campanula/4,cpp
+
+distcc[27826] (dcc_show_hosts) CRITICAL! Failed to get host list
+/Users/too1/Development/opt/macports/install/bin/pump: error: pump mode requested, but distcc hosts list does not contain any hosts with ',cpp' option
+```
+
+https://trac.macports.org/ticket/23754
+
+
+> The problem is caused by the fact that the OS python2.5 (which is what distcc detects by default) is 32-bit only, and hence not compatible with 64-bit shared libraries.
+
+> The enclosed patch adds python26 & python27 variants, which tell distcc to use the MacPorts python installs. These are built 64-bit and so work perfectly with the 64-bit shared libs.
+
+> An alternative solution might be to use the OS X python2.6 install, which is built as a 64- and 32-bit binary, I'll leave that as an exercise for the reader.
+
+
+```bash
 #!/bin/bash
 
 source /export/tmp.hudson-rose/opt/macports/setup.sh
@@ -153,6 +184,30 @@ Undefined symbols:
 Solution: use the C++ compiler since your code is C++ (.cpp)
 ```bash
 $ g++ test.cpp
+```
+
+```bash
+sealavender $ time make -j4 -C src/
+  LINK    testSharedRoseLib
+[INFO] [../../../master/scripts/check_boost_linkage.sh] Boost is being linked from '/Users/too1/Development/opt/macports/install/lib/' in '.libs/testSharedRoseLib'
+[INFO] Testing whether a simple program linked with ROSE can be run (a warning will be issued because the translator is being run without an input file):
+i686-apple-darwin10-g++-4.2.1: no input files
+distcc[21036] ERROR: compile (null) on localhost failed
+[INFO] Success!
+
+real36m50.515s
+Users44m6.174s
+sys4m53.284s
+```
+
+With warmed up cache:
+
+```bash
+$ time make -j24 -C src
+...
+[INFO] Success!
+
+14m
 ```
 
 ```bash
