@@ -375,3 +375,19 @@ http://www.cplusplus.com/doc/tutorial/preprocessor/
   #pragma warning ( disable: 4231 4251 4275 4786 )
   #endif
 ```
+
+## 
+
+Problem:
+
+```bash
+/usr/lib/gcc/x86_64-redhat-linux/4.4.6/../../../../include/c++/4.4.6/cxxabi.h:45: error: expected declaration before end of line
+```
+
+[-fvisibility=default|internal|hidden|protected](http://gcc.gnu.org/onlinedocs/gcc-4.4.6/gcc/Code-Gen-Options.html)
+
+> Removing the pragma there and on line 45 lets the compiler go on.
+
+
+
+

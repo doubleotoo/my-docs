@@ -25,3 +25,5 @@ Certificate information:
 ```bash
   $ rm ~/.subversion/auth/svn.ssl.server/*
 ```
+
+http://svnbook.red-bean.com/en/1.5/svn.serverconfig.httpd.html#svn.serverconfig.httpd.authn.sslcerts
