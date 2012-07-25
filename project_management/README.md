@@ -32,7 +32,7 @@ $ ghe-*
 Downloading logs from your installation (Support Bundle)
 https://support.enterprise.github.com/entries/21383598-downloading-logs-from-your-installation
 
-$ ssh admin@enterprise-server -- 'ghe-support-bundle -o' > support-bundle.tgz
+$ ssh admin@github.llnl.gov -- 'ghe-support-bundle -o' > support-bundle.tgz
 
 ---
 
@@ -43,4 +43,35 @@ ghe-cleanup-repos
 Solution: upgrade to 11.10.271
 
 * Added ghe-cleanup-repos utility to cleanup failed repo forks, empty wiki repos, and repos that failed to delete for customers affected by the background job bug mentioned below.
+
+
+Delete stale database rows: (should use Admin Utility instead)
+
+```bash
+mysql> select R.id, R.name, U.login from repositories R, users U where R.owner_id = U.id;
++----+----------------------+---------------+
+| id | name                 | login         |
++----+----------------------+---------------+
+|  2 | anotherrepo          | aquilino1     |
+|  1 | testrepo             | aquilino1     |
+|  3 | rose                 | hudson-rose   |
+| 16 | rose-1               | hudson-rose   |
+|  6 | EDG                  | rose-compiler |
+|  4 | rose                 | rose-compiler |
+|  7 | vulnerabilitySeeding | rose-compiler |
+| 19 | EDG                  | liao6         |
+| 11 | rose                 | liao6         |
+| 22 | rose2                | liao6         |
+|  5 | rose                 | vanka1        |
+| 23 | rose                 | ma23          |
+| 21 | rose                 | lin32         |
+| 14 | rose                 | aananthakris1 |
++----+----------------------+---------------+
+14 rows in set (0.00 sec)
+
+mysql> delete from repositories where id=15;
+```
+
+
+
 
