@@ -7,6 +7,8 @@ git
   $ export GIT_CURL_VERBOSE=1
 ```
 
+For HTTPS errors, see https://help.github.com/articles/https-cloning-errors.
+
 ## SSL certificate problem, verify that the CA cert is OK.
 
 Tell cURL to not check for SSL certificates:
