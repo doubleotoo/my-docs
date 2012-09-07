@@ -1,6 +1,12 @@
 git
 ===
 
+## Debug
+
+```bash
+  $ export GIT_CURL_VERBOSE=1
+```
+
 ## SSL certificate problem, verify that the CA cert is OK.
 
 Tell cURL to not check for SSL certificates:
