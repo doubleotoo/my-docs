@@ -4,6 +4,7 @@ Shell
 Terminal colors:
 * https://github.com/janlelis/paint
 
+
 ## find
 
 Search for files in `<location>` created within a given `<time_period>`.
@@ -17,3 +18,22 @@ $ find <location> -ctime <time_period>
 * Created more than 30 days ago: `-ctime +30`
 * Created less than 30 days ago: `-ctime -30`
 * Created exactly than 30 days ago: `-ctime 30`
+
+
+## printf
+
+See http://wiki.bash-hackers.org/commands/builtin/printf.
+
+Assign `printf` output to the variable `VAR` instead of printing to `stdout`:
+
+* General Form:
+
+  ```bash
+  $ printf -v <VAR> "<STRING>"
+  ```
+
+* Example:
+
+  ```bash
+  $ printf -v _indent "\n\t"
+  ```
