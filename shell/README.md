@@ -137,3 +137,14 @@ $$
       export PATH=$PERLBREW_PATH:$PATH_WITHOUT_PERLBREW
   }
   ```
+
+### I/O Redirection
+
+See http://stackoverflow.com/questions/3962674/how-do-these-stream-redirections-work.
+
+```
+3>&1: Open FD 3 to point to where stdout currently points.
+1>&2: Reopen stdout to point to where stderr currently points.
+2>&3: Reopen stderr to point to where FD 3 currently points, which is where stdout pointed before the previous step was completed. Now stdout and stderr have been succesfully swapped.
+3>&-: Close FD 3 because it's not needed anymore.
+```
