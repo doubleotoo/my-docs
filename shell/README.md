@@ -37,3 +37,14 @@ Assign `printf` output to the variable `VAR` instead of printing to `stdout`:
   ```bash
   $ printf -v _indent "\n\t"
   ```
+
+## Interactive
+
+If debugging, print progress indicator.
+
+* For example, use a single dot `.` to produce a stream like `.......` for each
+  step:
+
+  ```bash
+  $ [[ -n "$DEBUG" ]] && echo -n .
+  ```
