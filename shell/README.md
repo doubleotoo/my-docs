@@ -148,3 +148,8 @@ See http://stackoverflow.com/questions/3962674/how-do-these-stream-redirections-
 2>&3: Reopen stderr to point to where FD 3 currently points, which is where stdout pointed before the previous step was completed. Now stdout and stderr have been succesfully swapped.
 3>&-: Close FD 3 because it's not needed anymore.
 ```
+
+### Traps
+
+See http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_12_02.html.
+
