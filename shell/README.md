@@ -107,6 +107,12 @@ do their thing
   declare -f term
   ```
 
+  Note: You can use this to check if a function exists:
+
+  ```bash
+  $ declare -F $1 >/dev/null || <fail>
+  ```
+
 * List definitions
 
   ```bash
