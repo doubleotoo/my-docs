@@ -38,6 +38,7 @@ Assign `printf` output to the variable `VAR` instead of printing to `stdout`:
   $ printf -v _indent "\n\t"
   ```
 
+
 ## Interactive
 
 If debugging, print progress indicator.
@@ -48,3 +49,15 @@ If debugging, print progress indicator.
   ```bash
   $ [[ -n "$DEBUG" ]] && echo -n .
   ```
+
+
+## Bash
+
+### [The Double-Parentheses Construct](http://tldp.org/LDP/abs/html/dblparens.html)
+
+```
+Similar to the let command, the (( ... )) construct permits arithmetic expansion and evaluation.
+In its simplest form, a=$(( 5 + 3 )) would set a to 5 + 3, or 8. However, this double-parentheses
+construct is also a mechanism for allowing C-style manipulation of variables in Bash,
+for example, (( var++ )).
+```
