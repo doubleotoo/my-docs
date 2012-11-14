@@ -32,7 +32,7 @@ Assign `printf` output to the variable `VAR` instead of printing to `stdout`:
   $ printf -v <VAR> "<STRING>"
   ```
 
-* Example:
+* [Example](https://github.com/lehmannro/assert.sh/blob/master/assert.sh):
 
   ```bash
   $ printf -v _indent "\n\t"
