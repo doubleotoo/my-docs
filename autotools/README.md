@@ -8,6 +8,13 @@ Examples of package configuration wrappers, `pkg-config`:
 * LLVM
 * https://github.com/vslavik/xmlwrapp
 
+## Autoconf
+
+### AC_CONFIG_SUBDIR
+
+See [AC_CONFIG_SUBDIR_CUSTOM](http://lists.gnu.org/archive/html/autoconf/2011-04/msg00015.html)
+
+
 ## Automake
 
 #### Conditionals
