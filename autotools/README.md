@@ -45,6 +45,14 @@ See [AC_CONFIG_SUBDIR_CUSTOM](http://lists.gnu.org/archive/html/autoconf/2011-04
 **References**
 * [Usage of Conditionals](http://www.gnu.org/software/automake/manual/html_node/Usage-of-Conditionals.html)
 
+#### Environment
+
+```Automake
+# Make the libtap.sh file available to the Shell test scripts
+# through an environment variable.
+export am_libtap_sh=${abs_top_srcdir}/tests/libtap.sh
+```
+
 ## Libtool
 
 #### Versioning (`-version-info`)
