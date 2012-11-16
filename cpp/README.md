@@ -21,6 +21,14 @@ make -j16
 make -j16 install
 ```
 
+# Debugging
+
+## Valgrind
+
+```bash
+$ valgrind --tool=memcheck <program_name>
+```
+
 # Logging
 
 ## Log4cxx
