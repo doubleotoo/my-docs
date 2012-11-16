@@ -2,8 +2,27 @@
 
 # c++-tap-harness
 
-See Prove testing harness: http://search.cpan.org/~ovid/Test-Harness-3.25/bin/prove
-See documentation for the TAP format (Test::Harness::Tap): http://search.cpan.org/~petdance/Test-Harness-2.64/lib/Test/Harness/TAP.pod
+* See Prove testing harness: http://search.cpan.org/~ovid/Test-Harness-3.25/bin/prove.
+* See documentation for the TAP format (Test::Harness::Tap): http://search.cpan.org/~petdance/Test-Harness-2.64/lib/Test/Harness/TAP.pod
+* See Pthreads in libtap: https://github.com/pozorvlak/libtap/blob/master/src/tap.c.
+*
+
+
+## Experimental
+
+Build in stages like Jenkins plugin, example:
+
+1. Run 3 tests in parallel
+2. Run 6 tests in serial
+3. Run 20 tests in parallel
+4. Run 2 tests in serial
+5. etc...
+
+```
+--serial-tests=FILE  Not safe to run in parallel yet, or dependencies
+```
+
+See https://github.com/Perl-Toolchain-Gang/Test-Harness/pull/3/files.
 
 
 ## Automake TAP test harness
