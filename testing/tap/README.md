@@ -5,7 +5,18 @@
 * See Prove testing harness: http://search.cpan.org/~ovid/Test-Harness-3.25/bin/prove.
 * See documentation for the TAP format (Test::Harness::Tap): http://search.cpan.org/~petdance/Test-Harness-2.64/lib/Test/Harness/TAP.pod
 * See Pthreads in libtap: https://github.com/pozorvlak/libtap/blob/master/src/tap.c.
-*
+
+## App::Prove
+
+### App::Prove::State
+
+See http://perldoc.perl.org/App/Prove/State.html
+
+  The prove command supports a --state option that instructs it to store persistent state across runs.
+
+
+  If you pass --state=save then information about the last run will be saved in a .prove file in the
+  current directory. This data can be used later to run only failed tests, or to reorder tests.
 
 
 ## Experimental
