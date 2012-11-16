@@ -83,7 +83,7 @@ libtap/basic
 
 See [Git's testing](https://github.com/git/git/tree/master/t)
 
-In `$GIT/t/Makefile`:
+In `$GIT/t/Makefile` -  Execute `prove` tests using the Shell:
 
 ```Makefile
 SHELL_PATH ?= $(SHELL)
