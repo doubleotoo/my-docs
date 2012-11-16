@@ -86,9 +86,17 @@ See [Git's testing](https://github.com/git/git/tree/master/t)
 In `$GIT/t/Makefile`:
 
 ```Makefile
+SHELL_PATH ?= $(SHELL)
+
+# Shell quote;
+SHELL_PATH_SQ = $(subst ','\'',$(SHELL_PATH))
+
 prove: pre-clean $(TEST_LINT)
-> @echo "*** prove ***"; GIT_CONFIG=.git/config $(PROVE) --exec '$(SHELL_PATH_SQ)' $(GIT_PROVE_OPTS) $(T) :: $(GIT_TEST_OPTS)
-> $(MAKE) clean-except-prove-cache
+▸ @echo "*** prove ***"; GIT_CONFIG=.git/config $(PROVE) --exec '$(SHELL_PATH_SQ)' $(GIT_PROVE_OPTS) $(T) :: $(GIT_TEST_OPTS)
+▸ $(MAKE) clean-except-prove-cache
+
+$(T):
+▸ @echo "*** $@ ***"; GIT_CONFIG=.git/config '$(SHELL_PATH_SQ)' $@ $(GIT_TEST_OPTS)
 ```
 
 Example usage:
