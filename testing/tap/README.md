@@ -72,6 +72,20 @@ libtap/basic
 
 See [Git's testing](https://github.com/git/git/tree/master/t)
 
+In `$GIT/t/Makefile`:
+
+```Makefile
+prove: pre-clean $(TEST_LINT)
+> @echo "*** prove ***"; GIT_CONFIG=.git/config $(PROVE) --exec '$(SHELL_PATH_SQ)' $(GIT_PROVE_OPTS) $(T) :: $(GIT_TEST_OPTS)
+> $(MAKE) clean-except-prove-cache
+```
+
+Example usage:
+
+```
+$ make DEFAULT_TEST_TARGET=prove GIT_PROVE_OPTS='--timer --jobs 16' test
+```
+
 
 Main test library files:
 
