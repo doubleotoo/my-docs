@@ -1,5 +1,11 @@
 # Test harness
 
+# c++-tap-harness
+
+See Prove testing harness: http://search.cpan.org/~ovid/Test-Harness-3.25/bin/prove
+See documentation for the TAP format (Test::Harness::Tap): http://search.cpan.org/~petdance/Test-Harness-2.64/lib/Test/Harness/TAP.pod
+
+
 ## Automake TAP test harness
 
 See `$AUTOMAKE_PREFIX/share/automake-APIVERSION/tap-driver.[pl,sh]` (http://www.gnu.org/software/automake/manual/html_node/Use-TAP-with-the-Automake-test-harness.html).
