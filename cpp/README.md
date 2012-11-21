@@ -29,6 +29,51 @@ make -j16 install
 $ valgrind --tool=memcheck <program_name>
 ```
 
+## GDB
+
+```bash
+$ gdb identityTranslator
+(gdb) run -d /export/tmp.too1/workspace/rose/java/workspace/rose-builder/rose_workspace/jmeter/apache-jmeter-2.8/build/jorphan -classpath /export/tmp.too1/workspace/rose/java/workspace/rose-builder/rose_workspace/jmeter/apache-jmeter-2.8/build/jorphan:/export/tmp.too1/workspace/rose/java/workspace/rose-builder/rose_workspace/jmeter/apache-jmeter-2.8/lib/activation-1.1.1.jar:/export/tmp.too1/workspace/rose/java/workspace/rose-builder/rose_workspace/jmeter/apache-jmeter-2.8/lib/bsf-2.4.0.jar:/export/tmp.too1/workspace/rose/java/workspace/rose-builder/rose_workspace/jmeter/apache-jmeter-2.8/lib/bsf-api-3.1.jar:/export/tmp.too1/workspace/rose/java/workspace/rose-builder/rose_workspace/jmeter/apache-jmeter-2.8/lib/bsh-2.0b5.jar:/export/tmp.too1/workspace/rose/java/workspace/rose-builder/rose_workspace/jmeter/apache-jmeter-2.8/lib/avalon-framework-4.1.4.jar:/export/tmp.too1/workspace/rose/java/workspace/rose-builder/rose_workspace/jmeter/apache-jmeter-2.8/lib/xmlgraphics-commons-1.3.1.jar:/export/tmp.too1/workspace/rose/java/workspace/rose-builder/rose_workspace/jmeter/apache-jmeter-2.8/lib/commons-codec-1.6.jar:/export/tmp.too1/workspace/rose/java/workspace/rose-builder/rose_workspace/jmeter/apache-jmeter-2.8/lib/commons-collections-3.2.1.jar:/export/tmp.too1/workspace/rose/java/workspace/rose-builder/rose_workspace/jmeter/apache-jmeter-2.8/lib/commons-httpclient-3.1.jar:/export/tmp.too1/workspace/rose/java/workspace/rose-builder/rose_workspace/jmeter/apache-jmeter-2.8/lib/commons-io-2.2.jar:/export/tmp.too1/workspace/rose/java/workspace/rose-builder/rose_workspace/jmeter/apache-jmeter-2.8/lib/commons-jexl-1.1.jar:/export/tmp.too1/workspace/rose/java/workspace/rose-builder/rose_workspace/jmeter/apache-jmeter-2.8/lib/commons-jexl-2.1.1.jar:/export/tmp.too1/workspace/rose/java/workspace/rose-builder/rose_workspace/jmeter/apache-jmeter-2.8/lib/commons-lang3-3.1.jar:/export/tmp.too1/workspace/rose/java/workspace/rose-builder/rose_workspace/jmeter/apache-jmeter-2.8/lib/commons-logging-1.1.1.jar:/export/tmp.too1/workspace/rose/java/workspace/rose-builder/rose_workspace/jmeter/apache-jmeter-2.8/lib/commons-net-3.1.jar:/export/tmp.too1/workspace/rose/java/workspace/rose-builder/rose_workspace/jmeter/apache-jmeter-2.8/lib/excalibur-datasource-1.1.1.jar:/export/tmp.too1/workspace/rose/java/workspace/rose-builder/rose_workspace/jmeter/apache-jmeter-2.8/lib/excalibur-instrument-1.0.jar:/export/tmp.too1/workspace/rose/java/workspace/rose-builder/rose_workspace/jmeter/apache-jmeter-2.8/lib/excalibur-logger-1.1.jar:/export/tmp.too1/workspace/rose/java/workspace/rose-builder/rose_workspace/jmeter/apache-jmeter-2.8/lib/excalibur-pool-1.2.jar:/export/tmp.too1/workspace/rose/java/workspace/rose-builder/rose_workspace/jmeter/apache-jmeter-2.8/lib/htmllexer-2.1.jar:/export/tmp.too1/workspace/rose/java/workspace/rose-builder/rose_workspace/jmeter/apache-jmeter-2.8/lib/htmlparser-2.1.jar:/export/tmp.too1/workspace/rose/java/workspace/rose-builder/rose_workspace/jmeter/apache-jmeter-2.8/lib/httpclient-4.2.1.jar:/export/tmp.too1/workspace/rose/java/workspace/rose-builder/rose_workspace/jmeter/apache-jmeter-2.8/lib/httpmime-4.2.1.jar:/export/tmp.too1/workspace/rose/java/workspace/rose-builder/rose_workspace/jmeter/apache-jmeter-2.8/lib/httpcore-4.2.2.jar:/export/tmp.too1/workspace/rose/java/workspace/rose-builder/rose_workspace/jmeter/apache-jmeter-2.8/lib/oro-2.0.8.jar:/export/tmp.too1/workspace/rose/java/workspace/rose-builder/rose_workspace/jmeter/apache-jmeter-2.8/lib/mail-1.4.4.jar:/export/tmp.too1/workspace/rose/java/workspace/rose-builder/rose_workspace/jmeter/apache-jmeter-2.8/lib/jcharts-0.7.5.jar:/export/tmp.too1/workspace/rose/java/workspace/rose-builder/rose_workspace/jmeter/apache-jmeter-2.8/lib/jdom-1.1.2.jar:/export/tmp.too1/workspace/rose/java/workspace/rose-builder/rose_workspace/jmeter/apache-jmeter-2.8/lib/geronimo-jms_1.1_spec-1.1.1.jar:/export/tmp.too1/workspace/rose/java/workspace/rose-builder/rose_workspace/jmeter/apache-jmeter-2.8/lib/rhino-1.7R3.jar:/export/tmp.too1/workspace/rose/java/workspace/rose-builder/rose_workspace/jmeter/apache-jmeter-2.8/lib/junit-4.10.jar:/export/tmp.too1/workspace/rose/java/workspace/rose-builder/rose_workspace/jmeter/apache-jmeter-2.8/lib/logkit-2.0.jar:/export/tmp.too1/workspace/rose/java/workspace/rose-builder/rose_workspace/jmeter/apache-jmeter-2.8/lib/serializer-2.7.1.jar:/export/tmp.too1/workspace/rose/java/workspace/rose-builder/rose_workspace/jmeter/apache-jmeter-2.8/lib/soap-2.3.1.jar:/export/tmp.too1/workspace/rose/java/workspace/rose-builder/rose_workspace/jmeter/apache-jmeter-2.8/lib/jtidy-r938.jar:/export/tmp.too1/workspace/rose/java/workspace/rose-builder/rose_workspace/jmeter/apache-jmeter-2.8/lib/xalan-2.7.1.jar:/export/tmp.too1/workspace/rose/java/workspace/rose-builder/rose_workspace/jmeter/apache-jmeter-2.8/lib/xercesImpl-2.9.1.jar:/export/tmp.too1/workspace/rose/java/workspace/rose-builder/rose_workspace/jmeter/apache-jmeter-2.8/lib/xml-apis-1.3.04.jar:/export/tmp.too1/workspace/rose/java/workspace/rose-builder/rose_workspace/jmeter/apache-jmeter-2.8/lib/xpp3_min-1.1.4c.jar:/export/tmp.too1/workspace/rose/java/workspace/rose-builder/rose_workspace/jmeter/apache-jmeter-2.8/lib/xstream-1.4.2.jar:/export/tmp.too1/workspace/rose/java/workspace/rose-builder/rose_workspace/jmeter/apache-jmeter-2.8/lib/xmlpull-1.1.3.1.jar:/export/tmp.too1/workspace/rose/java/workspace/rose-builder/rose_workspace/jmeter/apache-jmeter-2.8/lib/api/bcmail-jdk15-1.45.jar:/export/tmp.too1/workspace/rose/java/workspace/rose-builder/rose_workspace/jmeter/apache-jmeter-2.8/lib/api/bcprov-jdk15-1.45.jar -sourcepath /export/tmp.too1/workspace/rose/java/workspace/rose-builder/rose_workspace/jmeter/apache-jmeter-2.8/src/jorphan -target 1.5 -encoding UTF-8 -g -O -source 1.5 @/tmp/files6571348486763470261
+
+(gdb) bt
+#0  0x000000338aa30285 in raise () from /lib64/libc.so.6
+#1  0x000000338aa31d30 in abort () from /lib64/libc.so.6
+#2  0x00002aaaaf6783c4 in __gnu_cxx::__verbose_terminate_handler ()
+    at ../../../../gcc-4.2.4/libstdc++-v3/libsupc++/vterminate.cc:98
+#3  0x00002aaaaf676386 in __cxxabiv1::__terminate (handler=0x3641)
+    at ../../../../gcc-4.2.4/libstdc++-v3/libsupc++/eh_terminate.cc:43
+#4  0x00002aaaaf6763b3 in std::terminate ()
+    at ../../../../gcc-4.2.4/libstdc++-v3/libsupc++/eh_terminate.cc:53
+#5  0x00002aaaaf67649a in __cxxabiv1::__cxa_throw (obj=<value optimized out>, tinfo=<value optimized out>, 
+    dest=<value optimized out>) at ../../../../gcc-4.2.4/libstdc++-v3/libsupc++/eh_throw.cc:76
+#6  0x00002aaaac15d8c2 in boost::throw_exception<boost::filesystem2::basic_filesystem_error<boost::filesystem2::basic_path<std::basic_string<char, std::char_traits<char>, std::allocator<char> >, boost::filesystem2::path_traits> > > (e=...) at /home/too1/local/opt/boost/1_45_0/include/boost/throw_exception.hpp:61
+#7  0x00002aaaac15d9d2 in boost::filesystem2::exists<boost::filesystem2::basic_path<std::basic_string<char, std::char_traits<char>, std::allocator<char> >, boost::filesystem2::path_traits> > (ph=...)
+    at /home/too1/local/opt/boost/1_45_0/include/boost/filesystem/v2/operations.hpp:295
+#8  0x00002aaaac15da69 in boost::filesystem2::exists (ph=...)
+    at /home/too1/local/opt/boost/1_45_0/include/boost/filesystem/v2/operations.hpp:637
+#9  0x00002aaaac31fb0d in CommandlineProcessing::isValidFileWithExecutableFileSuffixes (name=...)
+    at ../../../../ROSE/src/frontend/SageIII/sage_support/cmdline.cpp:196
+#10 0x00002aaaac31fcea in CommandlineProcessing::isExecutableFilename (name=...)
+    at ../../../../ROSE/src/frontend/SageIII/sage_support/cmdline.cpp:133
+#11 0x00002aaaac32011a in CommandlineProcessing::generateSourceFilenames (argList=..., binaryMode=false)
+    at ../../../../ROSE/src/frontend/SageIII/sage_support/cmdline.cpp:391
+#12 0x00002aaaac322b5f in SgProject::processCommandLine (this=0x2aaab4aba010, input_argv=...)
+    at ../../../../ROSE/src/frontend/SageIII/sage_support/cmdline.cpp:933
+#13 0x00002aaaac2fd390 in SgProject::parse (this=0x2aaab4aba010, argv=...)
+    at ../../../../ROSE/src/frontend/SageIII/sage_support/sage_support.cpp:1270
+#14 0x00002aaaac4b9908 in SgProject::SgProject (this=0x2aaab4aba010, argv=..., 
+    frontendConstantFolding=false) at Cxx_Grammar.C:20562
+#15 0x00002aaaae14de5c in frontend (argv=..., frontendConstantFolding=false)
+    at ../../../ROSE/src/roseSupport/utility_functions.C:159
+#16 0x00002aaaae14e4c2 in frontend (argc=16, argv=0x7fffffffc648, frontendConstantFolding=false)
+    at ../../../ROSE/src/roseSupport/utility_functions.C:136
+#17 0x00000000004040be in main (argc=16, argv=0x7fffffffc648)
+    at ../../../../ROSE/exampleTranslators/documentedExamples/simpleTranslatorExamples/identityTranslator.C:
+
+(gdb) break ../../../../ROSE/src/frontend/SageIII/sage_support/cmdline.cpp:933
+```
+
+
 # Logging
 
 ## Log4cxx
