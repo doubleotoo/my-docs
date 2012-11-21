@@ -13,7 +13,7 @@ For HTTPS errors, see https://help.github.com/articles/https-cloning-errors.
 
 Tell cURL to not check for SSL certificates:
 
-1.. Environment variable (temporary)
+1. Environment variable (temporary)
 
     ```bash
       $ env GIT_SSL_NO_VERIFY=true git pull
