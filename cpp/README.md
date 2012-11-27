@@ -1,6 +1,17 @@
 C++
 ===
 
+# Language
+
+## Vector
+
+
+```bash
+// Gives you the index `it` is pointing at, assuming it points into vec.
+std::distance(vec.begin(), it)
+```
+
+
 # GCC Compiler
 
 ## Install
