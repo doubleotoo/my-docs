@@ -31,9 +31,16 @@ $ valgrind --tool=memcheck <program_name>
 
 ## GDB
 
-```
+```bash
 (gdb) set print pretty on
 ```
+
+Reload executable
+
+```bash
+(gdb) file identityTranslator
+```
+
 
 ```bash
 $ gdb identityTranslator
