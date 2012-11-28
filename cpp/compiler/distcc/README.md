@@ -753,3 +753,110 @@ error: command 'gcc-4.2' failed with exit status 1
 make: *** [include-server] Error 1
 ```
 
+
+Run `distccmon-text` on client side (where compilation is running):
+
+```bash
+$ ~/opt/distcc/3.2rc1/bin/distccmon-text 1.5
+ 32486  Compile     fixupSelfReferentialMacros.C                  localhost[0]
+ 32432  Compile     markForOutputInCodeGeneration.                localhost[1]
+ 32498  Compile     fixupTypeReferences.C                         localhost[2]
+ 32478  Compile     astPostProcessing.C                           localhost[3]
+
+ 32486  Compile     fixupSelfReferentialMacros.C                  localhost[0]
+ 32478  Compile     astPostProcessing.C                           localhost[3]
+
+ 32478  Compile     astPostProcessing.C                           localhost[3]
+
+ 32478  Compile     astPostProcessing.C                           localhost[3]
+
+ 32478  Compile     astPostProcessing.C                           localhost[3]
+
+ 32478  Compile     astPostProcessing.C                           localhost[3]
+
+
+   551  Preprocess                                                localhost[0]
+   552  Preprocess                                                localhost[1]
+   553  Preprocess                                                localhost[2]
+   558  Preprocess                                                localhost[3]
+   560  Preprocess                                                localhost[4]
+   563  Preprocess                                                localhost[5]
+   562  Preprocess                                                localhost[6]
+   565  Preprocess                                                localhost[7]
+
+   551  Preprocess                                                localhost[0]
+   552  Preprocess                                                localhost[1]
+   553  Preprocess                                                localhost[2]
+   558  Preprocess                                                localhost[3]
+   560  Preprocess                                                localhost[4]
+   563  Preprocess                                                localhost[5]
+   562  Preprocess                                                localhost[6]
+   565  Preprocess                                                localhost[7]
+
+   553  Compile     generateUniqueName.C                     hudson-rose-26[0]
+   563  Compile     sageBuilder_fortran.C                    hudson-rose-26[1]
+   551  Compile     sageBuilder.C                            hudson-rose-28[0]
+   558  Compile     sageInterface_type.C                     hudson-rose-28[1]
+   562  Compile     sageInterfaceAsm.C                       hudson-rose-28[2]
+   552  Compile     sageInterface.C                          hudson-rose-29[0]
+   560  Compile     abiStuff.C                               hudson-rose-29[1]
+   565  Compile     sageBuilderAsm.C                         hudson-rose-29[2]
+   566  Preprocess                                                localhost[2]
+
+   553  Compile     generateUniqueName.C                     hudson-rose-26[0]
+   563  Compile     sageBuilder_fortran.C                    hudson-rose-26[1]
+   566  Compile     sageInterface_asm.C                      hudson-rose-26[2]
+   551  Compile     sageBuilder.C                            hudson-rose-28[0]
+   558  Compile     sageInterface_type.C                     hudson-rose-28[1]
+   562  Compile     sageInterfaceAsm.C                       hudson-rose-28[2]
+   552  Compile     sageInterface.C                          hudson-rose-29[0]
+   560  Compile     abiStuff.C                               hudson-rose-29[1]
+   565  Compile     sageBuilderAsm.C                         hudson-rose-29[2]
+
+   566  Compile     sageInterface_asm.C                      hudson-rose-26[2]
+   551  Compile     sageBuilder.C                            hudson-rose-28[0]
+   558  Compile     sageInterface_type.C                     hudson-rose-28[1]
+   562  Compile     sageInterfaceAsm.C                       hudson-rose-28[2]
+   552  Compile     sageInterface.C                          hudson-rose-29[0]
+   565  Compile     sageBuilderAsm.C                         hudson-rose-29[2]
+   553  Compile     generateUniqueName.C                          localhost[0]
+   560  Compile     abiStuff.C                                    localhost[1]
+   563  Compile     sageBuilder_fortran.C                         localhost[2]
+
+   566  Compile     sageInterface_asm.C                      hudson-rose-26[2]
+   551  Receive     sageBuilder.C                            hudson-rose-28[0]
+   558  Receive     sageInterface_type.C                     hudson-rose-28[1]
+   562  Receive     sageInterfaceAsm.C                       hudson-rose-28[2]
+   552  Compile     sageInterface.C                          hudson-rose-29[0]
+   553  Compile     generateUniqueName.C                          localhost[0]
+   560  Compile     abiStuff.C                                    localhost[1]
+   563  Compile     sageBuilder_fortran.C                         localhost[2]
+   565  Compile     sageBuilderAsm.C                              localhost[3]
+
+   566  Receive     sageInterface_asm.C                      hudson-rose-26[2]
+   551  Receive     sageBuilder.C                            hudson-rose-28[0]
+   558  Receive     sageInterface_type.C                     hudson-rose-28[1]
+   562  Receive     sageInterfaceAsm.C                       hudson-rose-28[2]
+   552  Compile     sageInterface.C                          hudson-rose-29[0]
+   553  Compile     generateUniqueName.C                          localhost[0]
+   560  Compile     abiStuff.C                                    localhost[1]
+   563  Compile     sageBuilder_fortran.C                         localhost[2]
+   565  Compile     sageBuilderAsm.C                              localhost[3]
+
+   566  Receive     sageInterface_asm.C                      hudson-rose-26[2]
+   551  Receive     sageBuilder.C                            hudson-rose-28[0]
+   558  Receive     sageInterface_type.C                     hudson-rose-28[1]
+   562  Receive     sageInterfaceAsm.C                       hudson-rose-28[2]
+   552  Compile     sageInterface.C                          hudson-rose-29[0]
+   553  Compile     generateUniqueName.C                          localhost[0]
+   560  Compile     abiStuff.C                                    localhost[1]
+   563  Compile     sageBuilder_fortran.C                         localhost[2]
+   565  Compile     sageBuilderAsm.C                              localhost[3]
+
+   566  Receive     sageInterface_asm.C                      hudson-rose-26[2]
+   551  Receive     sageBuilder.C                            hudson-rose-28[0]
+   558  Receive     sageInterface_type.C                     hudson-rose-28[1]
+   562  Receive     sageInterfaceAsm.C                       hudson-rose-28[2]
+   552  Receive     sageInterface.C                          hudson-rose-29[0]
+   ...
+```
