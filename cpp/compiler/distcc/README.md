@@ -753,6 +753,22 @@ error: command 'gcc-4.2' failed with exit status 1
 make: *** [include-server] Error 1
 ```
 
+## With ROSE
+
+1. Create symbolic links from `distcc` to `gcc` and `g++`
+
+    ```bash
+    $ mkdir bin/
+    $ ln -s ~/opt/distcc/3.2rc1/bin/distcc gcc
+    $ ln -s ~/opt/distcc/3.2rc1/bin/distcc g++
+    ```
+
+2. Configure ROSE
+3. Build ROSE
+
+    ```bash
+    $ /usr/bin/time pump make -j72
+    ```
 
 Run `distccmon-text` on client side (where compilation is running):
 
