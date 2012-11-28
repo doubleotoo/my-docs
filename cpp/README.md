@@ -46,6 +46,14 @@ $ valgrind --tool=memcheck <program_name>
 (gdb) set print pretty on
 ```
 
+Delete all breakpoints
+
+```bash
+(gdb) info b
+(gdb) delete
+```
+
+
 Reload executable
 
 ```bash
