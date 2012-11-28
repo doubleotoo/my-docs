@@ -770,6 +770,24 @@ make: *** [include-server] Error 1
     $ /usr/bin/time pump make -j72
     ```
 
+Run `top` on `distccd` server:
+
+```bash
+$ top
+top - 09:13:19 up 28 days, 22:15,  1 user,  load average: 0.57, 0.27, 0.83
+Tasks: 463 total,   2 running, 459 sleeping,   0 stopped,   2 zombie
+Cpu(s):  0.0%us,  0.2%sy,  3.2%ni, 96.5%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st
+Mem:  24675800k total, 22975712k used,  1700088k free,  1282512k buffers
+Swap: 26738680k total,      268k used, 26738412k free, 19764236k cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND                                         
+ 7414 too1      30   5  406m 312m  27m R 80.0  1.3   0:02.41 cc1plus                                         
+ 3423 too1      20   5 19160  828  532 S  1.3  0.0   0:00.06 distccd                                         
+ 3447 too1      20   5 19160  828  532 S  0.3  0.0   0:00.03 distccd  
+ ...
+```
+
+
 Run `distccmon-text` on client side (where compilation is running):
 
 ```bash
