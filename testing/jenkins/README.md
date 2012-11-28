@@ -2,6 +2,19 @@
 
 ## Groovy
 
+### Get One Job by Name
+
+```bash
+def project = hudson.model.Hudson.instance.getJob(name)
+```
+
+### Get Downstream Jobs
+
+```bash
+def project = hudson.model.Hudson.instance.getJob(name)
+def downstreamProjects = project.getDownstreamProjects()
+```
+
 ### List Jobs in View
 
 ```bash
