@@ -1,6 +1,20 @@
 git
 ===
 
+## Install
+
+```bash
+  $ wget http://git-core.googlecode.com/files/git-1.8.1.tar.gz
+  $ tar xzvf git-1.8.1.tar.gz
+  $ cd git-1.8.1
+  
+  $ cat INSTALL
+  
+  $ ./configure --prefix="$(pwd)/../install/1.8.1"
+  $ make PROFILE=BUILD install  # optimized installation
+```
+
+
 ## Debug
 
 ```bash
