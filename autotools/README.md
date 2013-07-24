@@ -17,6 +17,11 @@ See [AC_CONFIG_SUBDIR_CUSTOM](http://lists.gnu.org/archive/html/autoconf/2011-04
 
 ## Automake
 
+### Automatic Variables
+See http://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html.
+
+$@, $<, etc.
+
 #### Conditionals
 * `if..else..endif` statements should **start on column one** (indentation not allowed!)
 
