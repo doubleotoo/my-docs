@@ -22,6 +22,28 @@ See http://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html.
 
 $@, $<, etc.
 
+### `%` Stem
+
+```Makefile
+OBJECTS=abc.o bca.o cba.o
+
+# This will set a dependency for each .o file 
+# as its corresponding .c file.
+#
+# For example:
+#
+#     abc.o : %.o : $(SRC)/%.c
+#
+# would expand to:
+#
+#     abc.o : abc.o : $(SRC)/abc.c
+#
+$(OBJECTS) : %.o : $(SRC)/%.c
+  <some rules>
+```
+
+See http://stackoverflow.com/questions/14573869/passing-target-name-to-a-dependency-in-makefile.
+
 #### Conditionals
 * `if..else..endif` statements should **start on column one** (indentation not allowed!)
 
