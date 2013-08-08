@@ -1,6 +1,16 @@
 C++
 ===
 
+# Debugging
+
+See http://www.ibm.com/developerworks/aix/library/au-unixtools.html
+
+```bash
+ 1073  nm deps_sections_01.o
+ 1074  objdump -d deps_sections_01.o
+ 1075  readelf -all deps_sections_01.o
+```
+
 # Language
 
 ## Vector
