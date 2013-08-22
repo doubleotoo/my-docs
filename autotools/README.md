@@ -17,6 +17,19 @@ See [AC_CONFIG_SUBDIR_CUSTOM](http://lists.gnu.org/archive/html/autoconf/2011-04
 
 ## Automake
 
+### Functions
+See http://www.gnu.org/software/make/manual/html_node/File-Name-Functions.html#File-Name-Functions.
+
+```Makefile
+$(dir names...)
+$(notdir names...)
+$(suffix names...)
+$(basename names...)
+$(addprefix prefix, names...)
+...
+
+```
+
 ### Automatic Variables
 See http://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html.
 
