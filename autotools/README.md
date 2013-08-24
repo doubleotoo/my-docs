@@ -17,6 +17,14 @@ See [AC_CONFIG_SUBDIR_CUSTOM](http://lists.gnu.org/archive/html/autoconf/2011-04
 
 ## Automake
 
+## GNU Make text functions
+See https://www.gnu.org/software/make/manual/html_node/Text-Functions.html.
+
+```bash
+$(filter pattern...,text)
+$(filter-out pattern...,text)
+```
+
 ### Functions
 See http://www.gnu.org/software/make/manual/html_node/File-Name-Functions.html#File-Name-Functions.
 
